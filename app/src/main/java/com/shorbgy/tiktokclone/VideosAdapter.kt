@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.google.android.exoplayer2.Player
 import com.shorbgy.tiktokclone.databinding.ItemVideoBinding
+import com.shorbgy.tiktokclone.extensions.fadeInOut
 import com.shorbgy.tiktokclone.utils.PlayerStateCallback
 import com.shorbgy.tiktokclone.utils.PlayerViewAdapter.Companion.loadVideo
 
@@ -30,6 +31,15 @@ class VideosAdapter: ListAdapter<Video, VideosAdapter.VideoViewHolder>(COMPARATO
                 position,
                 false
             )
+            binding.itemVideoExoplayer.setOnClickListener {
+                if (binding.itemVideoExoplayer.player?.isPlaying == true){
+                    binding.itemVideoExoplayer.player?.pause()
+                    binding.playImg.fadeInOut()
+                }else if (binding.itemVideoExoplayer.player?.isPlaying == false){
+                    binding.itemVideoExoplayer.player?.play()
+                    binding.pauseImg.fadeInOut()
+                }
+            }
         }
     }
 
@@ -55,5 +65,9 @@ class VideosAdapter: ListAdapter<Video, VideosAdapter.VideoViewHolder>(COMPARATO
     }
 
     override fun onFinishedPlaying(player: Player) {
+    }
+
+    interface OnEvents{
+        fun onVideoClickListener()
     }
 }

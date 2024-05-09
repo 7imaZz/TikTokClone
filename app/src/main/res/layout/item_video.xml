@@ -5,6 +5,32 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#000">
 
+    <ImageView
+        android:id="@+id/play_img"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:src="@drawable/ic_play"
+        android:alpha="0"
+        android:elevation="8dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:tint="@color/white" />
+
+    <ImageView
+        android:id="@+id/pause_img"
+        android:layout_width="160dp"
+        android:layout_height="160dp"
+        android:src="@drawable/ic_pause"
+        android:elevation="8dp"
+        android:alpha="0"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:tint="@color/white" />
+
     <com.google.android.exoplayer2.ui.StyledPlayerView
         android:id="@+id/item_video_exoplayer"
         android:layout_width="match_parent"
